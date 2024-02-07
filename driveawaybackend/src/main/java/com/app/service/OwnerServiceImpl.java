@@ -1,6 +1,7 @@
 package com.app.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -32,6 +33,12 @@ public class OwnerServiceImpl implements OwnerService{
 	public List<Vehicle> showAllVehicles() {
 		
 		return vehicleDao.findAll();
+	}
+
+	@Override
+	public Optional<Vehicle> selectVehicleById(Long vehicleId) {
+		
+		return vehicleDao.findById(vehicleId);
 	}
 	
 	

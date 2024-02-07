@@ -1,6 +1,7 @@
 package com.app.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.app.entities.Owner;
 import com.app.entities.Vehicle;
@@ -24,7 +25,8 @@ public interface OwnerService {
 	List<Vehicle> showAllVehicles();
 	
 	//for selecting Vehicles(user Operation)
-	//Optional<>
+	Optional<Vehicle> selectVehicleById(Long vehicleId);
+	//The Optional class in Java 8 is a container object which is used to contain a value that might or might not be present. It was introduced as a way to help reduce the number of NullPointerExceptions that occur in Java code.
 	
 	//for selecting all vehicles of a particular owner (admin operation)
 	
