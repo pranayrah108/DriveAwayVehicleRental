@@ -5,48 +5,62 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.app.dao.AdminDao;
+import com.app.dao.BookingDao;
 import com.app.dao.OwnerDao;
 import com.app.dao.UserDao;
 import com.app.dao.VehicleDao;
-import com.app.entities.Admin;
+import com.app.entities.Booking;
 import com.app.entities.Owner;
 import com.app.entities.User;
 import com.app.entities.Vehicle;
 
 public class AdminServiceImpl implements AdminService {
-	@Autowired
-	private UserDao userDao;
 	
 	@Autowired
 	private AdminDao adminDao;
 	
 	@Autowired
-	private VehicleDao vehicleDao;
+	private UserDao userDao;
 	
 	@Autowired
 	private OwnerDao ownerDao;
 	
+	@Autowired
+	private VehicleDao vehicleDao;
 	
-
-//	@Override
-//	public List<Admin> adminlogin(String userName) {
-//		
-//		return adminDao.findBy;
-//	}
+	private BookingDao bookingDao;
+	
 
 	@Override
 	public List<User> showAllUsers() {
+	
 		return userDao.findAll();
 	}
 
 	@Override
 	public List<Owner> showAllOwners() {
+	
 		return ownerDao.findAll();
 	}
 
 	@Override
 	public List<Vehicle> showAllVehicles() {
+		
 		return vehicleDao.findAll();
 	}
+
+	@Override
+	public void deleteVehicleRequestByVehicleRequestId(Long requestId) {
+		
+		this.vehicleDao.deleteById(requestId);
+	}
+
+	@Override
+	public List<Booking> showAllBooking() {
+	
+		return bookingDao.findAll();
+	}
+
+
 
 }
