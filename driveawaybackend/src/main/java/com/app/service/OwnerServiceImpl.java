@@ -20,61 +20,19 @@ public class OwnerServiceImpl implements OwnerService{
 	
 	@Autowired
 	private BookingDao bookingDao;
-
 	
-	@Override
-	public List<Owner> getAllOwners() {
-		
-		return ownerDao.findAll();
-	}
 
 	@Override
-	public Owner addOwnerDetails(Owner newOwner) {
+	public Owner addNewOwner(Owner newOwner) {
 		
 		return ownerDao.save(newOwner);
 	}
 
 	@Override
-	public String deleteOwnerDetails(Long ownerId) {
+	public List<Vehicle> showAllVehicles() {
 		
-		 ownerDao.deleteById(ownerId);
-		 return "Deleted Owner Details";
+		return vehicleDao.findAll();
 	}
-
-	@Override
-	public Owner getOwnerDetails(Long ownerId) {
-		
-		return null;
-	}
-
-	@Override
-	public Owner updateOwnerDetails(Owner owner) {
-		
-		return null;
-	}
-	///-----------------------------------------------
 	
 	
-	
-	
-//	//Owner login
-////	@Override
-////	public List<Owner> ownerLogin(String ownerEmail) {
-////		// TODO Auto-generated method stub
-////		List<Owner> owner = ownerDao.findBy
-////		return null;
-////	}
-//
-//	@Override
-//	public List<Vehicle> showAllVehicles() {
-//		// TODO Auto-generated method stub
-//		return vehicleDao.findAll();
-//	}
-	
-	///-----------------------------------------------
-	
-	
-	
-	
-
 }
