@@ -23,6 +23,8 @@ yarn-debug.log*
 yarn-error.log*
 
 ############################
+## react/.gitignore
+
 .DS_STORE
 node_modules
 scripts/flow/*/.flowconfig
