@@ -9,8 +9,9 @@ import com.app.entities.Vehicle;
 
 public interface AdminService {
 	
-	//admin login
-	List<Admin> adminlogin(String userName);
+//	//admin login
+//	List<Admin> adminlogin(String userName);
+	
 	
 	//listing all users
 	List<User> showAllUsers();

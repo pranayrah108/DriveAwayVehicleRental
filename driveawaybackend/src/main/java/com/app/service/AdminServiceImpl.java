@@ -28,11 +28,11 @@ public class AdminServiceImpl implements AdminService {
 	
 	
 
-	@Override
-	public List<Admin> adminlogin(String userName) {
-		
-		return adminDao.findBy;
-	}
+//	@Override
+//	public List<Admin> adminlogin(String userName) {
+//		
+//		return adminDao.findBy;
+//	}
 
 	@Override
 	public List<User> showAllUsers() {
