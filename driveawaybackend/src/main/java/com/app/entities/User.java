@@ -16,7 +16,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class User {
+public class User extends BaseEntity{
 	@Column(length = 30)
 	private String userFirstName;
 	@Column(length = 30)
@@ -28,8 +28,8 @@ public class User {
 	@Column(length = 12)
 	private String userMobile;
 	//adhar //mdm
-	@Embedded //optional
-	private AdharCard adharcard;
+//	@Embedded //optional
+//	private AdharCard adharcard;
 	
 	
 

@@ -2,6 +2,11 @@ package com.app.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.ManyToAny;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,8 +19,8 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-public class Vehicle {
+@ToString(exclude = {"own"}, callSuper = true)
+public class Vehicle extends BaseEntity{
 	@Column(length = 30)
 	private String vehicleName;
 	@Column(length = 30)
@@ -24,7 +29,16 @@ public class Vehicle {
 	private String vehicleChasisNumber;
 	
 	//vehicle image
+	
+	
 	private String vehicleReqStatus;
+	
+	
+//	//foreign key primary key of OwnerEntity
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "Owner_id")
+//	private Owner own;
+	
 	
 
 }

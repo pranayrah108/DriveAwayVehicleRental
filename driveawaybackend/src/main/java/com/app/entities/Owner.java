@@ -1,5 +1,9 @@
 package com.app.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -19,7 +23,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Owner {
+//@ToString(exclude = "vehicles")
+public class Owner extends BaseEntity{
 	@Column(length = 30)
 	private String ownerFirstName;
 	@Column(length = 30)
@@ -31,13 +36,29 @@ public class Owner {
 	@Column(length = 12)
 	private String ownerMobile;
 	
-	@Embedded //optional
-	private AdharCard ownerAdharcard;
+//	@Embedded //optional
+//	private AdharCard ownerAdharcard;
 	
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "department_id")//optional
-	private Vehicle vehicle;
-	
+//	//
+//	@OneToMany(mappedBy = "Owne", cascade = CascadeType.ALL, orphanRemoval = true)
+//	private List<Vehicle> vehicles = new ArrayList<>();
+//	
+//	
+//    //as per Gavin King's IMPORTANT suggestion add helper method to add /remove
+//	//child
+//	public void addVehicle(Vehicle v) {
+//		vehicles.add(v); //Owner--->vehicle
+//		v.setOwn(null);  //vehicle----->Owner
+//		//employee me department dept
+//	}
+//	
+//	public void removeVehicle(Vehicle v) {
+//		vehicles.remove(v);
+//		v.setOwn(null);
+//	}
+//	
+//	
+
 	
 	
 	
