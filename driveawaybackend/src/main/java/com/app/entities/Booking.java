@@ -16,7 +16,6 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Booking extends BaseEntity{
-	private int bookingId;
 	private int vehicleId;
 	@Column(nullable = false)
 	private String userEmail;
@@ -24,5 +23,4 @@ public class Booking extends BaseEntity{
 	private String vehicleNumber;
 	private String paymentStatus;
 	
-
 }

@@ -19,7 +19,7 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(exclude = {"own"}, callSuper = true)
+@ToString(exclude = {"owner"}, callSuper = true)
 public class Vehicle extends BaseEntity{
 	@Column(length = 30)
 	private String vehicleName;
@@ -33,11 +33,10 @@ public class Vehicle extends BaseEntity{
 	
 	private String vehicleReqStatus;
 	
-	
-//	//foreign key primary key of OwnerEntity
-//	@ManyToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name = "Owner_id")
-//	private Owner own;
+	//foreign key primary key of OwnerEntity
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "owner_id")  // Optional But reco, to specify the name of FK Col.
+	private Owner owner;
 	
 	
 

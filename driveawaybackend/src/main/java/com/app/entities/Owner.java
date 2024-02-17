@@ -36,31 +36,39 @@ public class Owner extends BaseEntity{
 	@Column(length = 12)
 	private String ownerMobile;
 	
-//	@Embedded //optional
-//	private AdharCard ownerAdharcard;
+	//adhar //mdm
+	//One To One association Owner-----> adharCard
+	@Embedded //optional
+	private AdharCard adharDetails;
 	
-//	//
-//	@OneToMany(mappedBy = "Owne", cascade = CascadeType.ALL, orphanRemoval = true)
-//	private List<Vehicle> vehicles = new ArrayList<>();
-//	
-//	
-//    //as per Gavin King's IMPORTANT suggestion add helper method to add /remove
-//	//child
-//	public void addVehicle(Vehicle v) {
-//		vehicles.add(v); //Owner--->vehicle
-//		v.setOwn(null);  //vehicle----->Owner
-//		//employee me department dept
-//	}
-//	
-//	public void removeVehicle(Vehicle v) {
-//		vehicles.remove(v);
-//		v.setOwn(null);
-//	}
-//	
-//	
+    //one to many
+	@OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true /*, fetch = FetchTupe.EAGAR  */)
+	private List<Vehicle> vehicles = new ArrayList<>();
+	
+	
+    //as per Gavin King's IMPORTANT suggestion add helper method to add /remove
+	//child
+	public void addVehicle(Vehicle v) {
+		vehicles.add(v); //Owner--->vehicle
+		v.setOwner(this);  //vehicle----->Owner
+		
+	}
+	
+	public void removeVehicle(Vehicle v) {
+		vehicles.remove(v);
+		v.setOwner(null);
+	}
 
-	
-	
+	public Owner(String ownerFirstName, String ownerLastName, String ownerEmail, String ownerPassword,
+			String ownerMobile, AdharCard adharDetails) {
+		super();
+		this.ownerFirstName = ownerFirstName;
+		this.ownerLastName = ownerLastName;
+		this.ownerEmail = ownerEmail;
+		this.ownerPassword = ownerPassword;
+		this.ownerMobile = ownerMobile;
+		this.adharDetails = adharDetails;
+	}
 	
 
 }
