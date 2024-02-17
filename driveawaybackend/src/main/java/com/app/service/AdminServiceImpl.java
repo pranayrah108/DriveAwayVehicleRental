@@ -12,6 +12,7 @@ import com.app.dao.BookingDao;
 import com.app.dao.OwnerDao;
 import com.app.dao.UserDao;
 import com.app.dao.VehicleDao;
+import com.app.entities.Admin;
 import com.app.entities.Booking;
 import com.app.entities.Owner;
 import com.app.entities.User;
@@ -19,7 +20,8 @@ import com.app.entities.Vehicle;
 @Service
 @Transactional
 public class AdminServiceImpl implements AdminService {
-	
+	@Autowired
+	private AdminDao adminDao;
 	@Autowired
 	private UserDao userDao;
 	
@@ -32,7 +34,13 @@ public class AdminServiceImpl implements AdminService {
 	@Autowired
 	private BookingDao bookingDao;
 	
-
+	//admin Login
+	@Override
+	public List<Admin> adminLogin(String username) {
+	
+		return adminDao.findByuserName(username);
+	}
+	
 	@Override
 	public List<User> showAllUsers() {
 	
@@ -62,6 +70,8 @@ public class AdminServiceImpl implements AdminService {
 	
 		return bookingDao.findAll();
 	}
+
+	
 
 
 

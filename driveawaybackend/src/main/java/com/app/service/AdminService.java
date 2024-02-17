@@ -11,7 +11,7 @@ import com.app.entities.Vehicle;
 public interface AdminService {
 	
 	//admin login
-	
+	public List<Admin> adminLogin(String username);
 	
 	//listing All users
 	List<User> showAllUsers();
