@@ -70,9 +70,6 @@ public class AdminServiceImpl implements AdminService {
 	
 		return bookingDao.findAll();
 	}
-
 	
-
-
 
 }
