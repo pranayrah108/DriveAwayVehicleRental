@@ -21,9 +21,6 @@ import com.app.entities.Vehicle;
 public class AdminServiceImpl implements AdminService {
 	
 	@Autowired
-	private AdminDao adminDao;
-	
-	@Autowired
 	private UserDao userDao;
 	
 	@Autowired
@@ -32,6 +29,7 @@ public class AdminServiceImpl implements AdminService {
 	@Autowired
 	private VehicleDao vehicleDao;
 	
+	@Autowired
 	private BookingDao bookingDao;
 	
 

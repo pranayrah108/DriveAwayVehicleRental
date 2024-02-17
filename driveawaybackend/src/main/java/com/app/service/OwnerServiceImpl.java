@@ -23,10 +23,6 @@ public class OwnerServiceImpl implements OwnerService{
 	@Autowired
 	private OwnerDao ownerDao;
 	
-	@Autowired
-	private BookingDao bookingDao;
-	
-
 	@Override
 	public Owner addNewOwner(Owner newOwner) {
 		

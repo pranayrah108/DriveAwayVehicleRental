@@ -18,9 +18,6 @@ public class UserServiceImpl implements UserService{
 	private UserDao userDao;
 	
 	@Autowired
-	private VehicleDao vehicleDao;
-	
-	@Autowired
 	private BookingDao bookingDao;
 
 	@Override
