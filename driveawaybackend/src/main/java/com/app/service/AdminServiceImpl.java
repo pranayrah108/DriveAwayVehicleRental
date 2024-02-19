@@ -3,6 +3,7 @@ package com.app.service;
 import java.util.List;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,9 +37,10 @@ public class AdminServiceImpl implements AdminService {
 	
 	//admin Login
 	@Override
-	public List<Admin> adminLogin(String username) {
-	
-		return adminDao.findByuserName(username);
+	public List<Admin> adminLogin(@Valid String userName) {
+		List<Admin> list =(List<Admin>) adminDao.findByuserName(userName);
+	    return list;
+//		return adminDao.findByuserName(username);
 	}
 	
 	@Override
@@ -60,6 +62,11 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
+	public void vehicleRequest(int vehicleRequestId) {
+		this.vehicleDao.vehicleRequestId(vehicleRequestId);
+	}
+	
+	@Override
 	public void deleteVehicleRequestByVehicleRequestId(Long requestId) {
 		
 		this.vehicleDao.deleteById(requestId);
@@ -70,6 +77,8 @@ public class AdminServiceImpl implements AdminService {
 	
 		return bookingDao.findAll();
 	}
+
+	
 	
 
 }

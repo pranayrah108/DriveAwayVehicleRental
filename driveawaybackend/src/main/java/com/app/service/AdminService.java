@@ -11,7 +11,7 @@ import com.app.entities.Vehicle;
 public interface AdminService {
 	
 	//admin login
-	public List<Admin> adminLogin(String username);
+	public List<Admin> adminLogin(String userName);
 	
 	//listing All users
 	List<User> showAllUsers();
@@ -23,7 +23,7 @@ public interface AdminService {
 	List<Vehicle> showAllVehicles();
 	
 	//acceptVehicleRequest of Owner
-	
+	public void vehicleRequest(int vehicleRequestId);
 	
 	//delete the vehicle add request of Owner
 	void deleteVehicleRequestByVehicleRequestId(Long requestId);
