@@ -19,7 +19,6 @@ import com.app.entities.VehicleEntity;
 
 
 
-
 @Service
 public class AdminService {
 

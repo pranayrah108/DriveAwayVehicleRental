@@ -13,7 +13,6 @@ import com.app.entities.OwnerEntity;
 import com.app.entities.VehicleEntity;
 
 
-
 @Service
 public class OwnerService {
 
