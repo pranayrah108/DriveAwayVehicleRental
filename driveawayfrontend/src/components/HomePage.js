@@ -49,7 +49,7 @@ const HomePage = () =>{
                             class="d-block w-10 h-3"
                             src={Logo}
                             alt="Image Two"
-                        />&nbsp;&nbsp; <span>Vehicle Rental System </span>
+                        />&nbsp;&nbsp; <span>DriveAway Vehicle Rental</span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
