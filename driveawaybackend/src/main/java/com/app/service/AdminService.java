@@ -1,36 +1,77 @@
 package com.app.service;
 
 import java.util.List;
+import javax.validation.Valid;
 
-import com.app.entities.Admin;
-import com.app.entities.Booking;
-import com.app.entities.Owner;
-import com.app.entities.User;
-import com.app.entities.Vehicle;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public interface AdminService {
+
+import com.app.entities.AdminEntity;
+import com.app.entities.BookingEntity;
+import com.app.entities.OwnerEntity;
+import com.app.entities.UserEntity;
+import com.app.entities.VehicleEntity;
+
+
+
+
+@Service
+public class AdminService {
+
+	@Autowired 
+	UserRepository userRepo;
 	
-	//admin login
-	public List<Admin> adminLogin(String userName);
+	@Autowired
+	OwnerRepository ownerRepo;
 	
-	//listing All users
-	List<User> showAllUsers();
+	@Autowired
+	VehicleRepository vehicleRepo;
 	
-	//listing All Owners
-	List<Owner> showAllOwners();
+	@Autowired
+	AdminRepository adminRepo;
 	
-	//listing All vehicles
-	List<Vehicle> showAllVehicles();
+	@Autowired
+	BookingRepository bookingRepo;
 	
-	//acceptVehicleRequest of Owner
-	public void vehicleRequest(int vehicleRequestId);
+	// admin Login
+	public List<AdminEntity> adminLogin(@Valid String userName) {
+		List<AdminEntity> list = (List<AdminEntity>) adminRepo.findByuserName(userName);
+		return list;
+	}	
+
+	// listing all users
+	public List<UserEntity> showAllUsers() {
+		List<UserEntity> list = (List<UserEntity>) userRepo.findAll();
+		return list; 
+	 }
+		
+	// listing all owners
+	public List<OwnerEntity> showAllOwners() {
+			List<OwnerEntity> list = (List<OwnerEntity>) ownerRepo.findAll();
+			return list; 
+	}
 	
-	//delete the vehicle add request of Owner
-	void deleteVehicleRequestByVehicleRequestId(Long requestId);
+	// listing all vehicles
+	public List<VehicleEntity> showAllVehicles() {
+		List<VehicleEntity> list = (List<VehicleEntity>) vehicleRepo.findAll();				  
+		return list; 
+	}
+		
+	//acceptVehicalRequest of owner
+	public void vehicalRequest(int vehicleReqestId) {
+		this.vehicleRepo.vehicleReqestId(vehicleReqestId);
+		// save() is used for update also JPA does not have special method for Update()
+	}	
 	
-	//listing All Bookings
-	List<Booking> showAllBooking();
-	
-	
+	//delete the vehicle add request of owner
+	public void deleteVehicleRequestByvehicleReqestId(int requestId) {
+		this.vehicleRepo.deleteById(requestId);
+	}
+
+	public List<BookingEntity> showAllBooking() {
+		List<BookingEntity> list = (List<BookingEntity>) bookingRepo.findAll();				  
+		return list; 
+	}
 
 }
