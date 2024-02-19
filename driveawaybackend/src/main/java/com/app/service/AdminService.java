@@ -6,7 +6,11 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import com.app.dao.AdminRepository;
+import com.app.dao.BookingRepository;
+import com.app.dao.OwnerRepository;
+import com.app.dao.UserRepository;
+import com.app.dao.VehicleRepository;
 import com.app.entities.AdminEntity;
 import com.app.entities.BookingEntity;
 import com.app.entities.OwnerEntity;
