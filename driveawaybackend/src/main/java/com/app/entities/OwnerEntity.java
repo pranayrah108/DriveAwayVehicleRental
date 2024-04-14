@@ -14,10 +14,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import lombok.NoArgsConstructor;
+
 
 @Entity
 @Table(name = "OwnerDetails", 
 uniqueConstraints = @UniqueConstraint(columnNames = { "ownerEmail"}))
+@NoArgsConstructor
+
 public class OwnerEntity {
 	
 	@Id
@@ -112,9 +116,9 @@ public class OwnerEntity {
 	@OneToMany(mappedBy = "ownerEntity", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<VehicleEntity> vehicleEntity = new ArrayList<>();
 
-	public OwnerEntity() {
-		super();
-	}
+//	public OwnerEntity() {
+//		super();
+//	}
 
 	public OwnerEntity(String ownerFirstName, String ownerLastName, String ownerPassword, String ownerEmail,
 			String ownerMobile /*, byte[] ownerAdhaarDetails*/) {
